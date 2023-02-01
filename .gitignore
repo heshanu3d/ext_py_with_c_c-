@@ -3,3 +3,4 @@ CPython/build
 CPython/dist
 CPython/MANIFEST
 CPython/spam.so
+boost_python/*.so

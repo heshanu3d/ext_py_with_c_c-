@@ -11,4 +11,14 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O3 -fPIC")
 
 find_package(PythonLibs REQUIRED)
 
+set(PYTHON_INCLUDE_DIR "/usr/include/python3.10")
+
+macro(add_py_module target source link_libs)
+	add_library(${target} ${source})
+	target_include_directories(${target} PRIVATE ${PYTHON_INCLUDE_DIR})
+	target_link_libraries(${target} PRIVATE ${link_libs})
+	set_target_properties(${target} PROPERTIES PREFIX "")
+endmacro()
+
 add_subdirectory(CPython)
+add_subdirectory(boost_python)
