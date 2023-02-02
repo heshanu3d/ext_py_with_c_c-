@@ -53,7 +53,18 @@
             ],
             "preLaunchTask": "cmake build"
         },
-
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+			"cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            "args": [
+                
+            ],
+            "sudo": false
+        },
     ],
     
 }
