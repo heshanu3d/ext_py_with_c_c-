@@ -1,5 +1,9 @@
-add_py_module(spam spammodule.c ${PYTHON_LIBRARIES})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR})
+add_py_module(spam 
+	SOURCES spammodule.c
+	LINK_LIBS ${PYTHON_LIBRARIES})
 
-add_executable(main main.c)
-target_include_directories(main PRIVATE ${PYTHON_INCLUDE_DIR})
-target_link_libraries(main PRIVATE ${PYTHON_LIBRARIES} spam)
+add_py_embeding_bin(main
+	SOURCES main.c
+	LINK_LIBS ${PYTHON_LIBRARIES} spam)

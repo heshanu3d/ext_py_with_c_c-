@@ -1,0 +1,4 @@
+if __name__ == "__main__":
+    with open("python_code.txt", 'r') as f:
+        for line in f.readlines():
+            print(line, end='')
